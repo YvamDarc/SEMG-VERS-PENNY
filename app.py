@@ -118,8 +118,6 @@ def parse_file(data, encoding='Auto', delimiter='Auto'):
                 raise ValueError('Débit et crédit tous deux non nuls sur la même ligne.')
             if not r['JournalCode'] or not r['CompteNum']:
                 raise ValueError('Journal ou compte vide.')
-            if not re.fullmatch(r'[0-9A-Za-z]+', r['CompteNum']):
-                raise ValueError('Compte non alphanumérique.')
             r['_id'] = source_id
             r['_original'] = dict(r)
             rows.append(r)
